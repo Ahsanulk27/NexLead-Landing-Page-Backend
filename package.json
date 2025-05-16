@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "server": "tsx src/server.ts"
+    "server": "tsx src/server.ts",
+    "vercel-build": "vite build",
+    "start": "vite preview"
   },
   "dependencies": {
     "@types/node": "^20.11.24",
@@ -46,5 +48,8 @@
     "typescript": "^5.3.3",
     "typescript-eslint": "^7.1.0",
     "vite": "^5.1.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
