@@ -30,7 +30,7 @@ const ContactForm: React.FC = () => {
   const sendOTP = async (data: FormData) => {
     try {
       setIsSubmitting(true);
-      const response = await axios.post(`${API_URL}/api/auth/send-otp`, data);
+      const response = await axios.post(`${API_URL}/api/send-otp`, data);
       setSuccess("OTP sent to your email!");
       setOtpSent(true);
       setError('');
@@ -47,7 +47,7 @@ const ContactForm: React.FC = () => {
     try {
       setIsSubmitting(true);
       const email = getValues('email');
-      const response = await axios.post(`${API_URL}/api/auth/verify-otp`, { email, otp });
+      const response = await axios.post(`${API_URL}/api/verify-otp`, { email, otp });
       setSuccess("Email verified successfully!");
       setTimeout(() => {
         navigate('/thank-you');

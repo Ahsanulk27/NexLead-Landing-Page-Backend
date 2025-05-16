@@ -4,13 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "server": "tsx src/server.ts"
-  
-},
+    "dev": "vite",
+    "build": "vite build",
+    "server": "tsx src/server.ts"
+  },
   "dependencies": {
     "@types/node": "^22.13.9",
+    "@vercel/node": "^5.1.16",
     "axios": "^1.8.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
