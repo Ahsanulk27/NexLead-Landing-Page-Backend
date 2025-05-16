@@ -6,9 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "server": "tsx src/server.ts",
-    "vercel-build": "vite build",
-    "start": "vite preview"
+    "server": "tsx src/server.ts"
   },
   "dependencies": {
     "@types/node": "^20.11.24",
