@@ -140,11 +140,11 @@ const ContactForm: React.FC = () => {
                     id="phone"
                     type="tel"
                     className={`input-field text-black ${errors.phone ? 'border-red-500 ring-red-500' : ''}`}
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+15551234567"
                     {...register('phone', { 
                       required: 'Phone number is required',
                       pattern: {
-                        value: /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/,
+                        value: /^\+?[1-9]\d{0,14}$/,
                         message: 'Invalid phone number'
                       }
                     })}
@@ -196,3 +196,7 @@ const ContactForm: React.FC = () => {
 };
 
 export default ContactForm;
+
+// deployed to github but reevaluate deployment process sicen you have your backend and frontend together, check if you need to deploy them spearately or not
+// delete current repo if needed and start fresh
+// check chatgpt for reference
