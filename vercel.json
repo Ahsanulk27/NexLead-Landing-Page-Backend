@@ -10,12 +10,17 @@
     },
     {
       "src": "api/**/*.ts",
-      "use": "nodejs20.x"
+      "use": "@vercel/node"
     }
   ],
+  "functions": {
+    "api/**/*.ts": {
+      "runtime": "nodejs20.x"
+    }
+  },
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "^/api/(.*)$",
       "dest": "/api/$1"
     },
     {
