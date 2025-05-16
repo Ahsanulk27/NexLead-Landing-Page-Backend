@@ -2,14 +2,9 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
 
 // Load environment variables
 dotenv.config();
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 const app = express();
 
@@ -50,7 +45,7 @@ app.post("/api/verify-otp", (req: Request, res: Response) => {
 // Serve static files in production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("dist"));
-  app.get("*", (req, res) => {
+  app.get("*", (_, res) => {
     res.sendFile("index.html", { root: "dist" });
   });
 }

@@ -1,7 +1,6 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import LandingPage from './pages/LandingPage'
-import ThankYouPage from './pages/ThankYouPage'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import ThankYouPage from "./pages/ThankYouPage";
 
 function App() {
   return (
@@ -11,7 +10,7 @@ function App() {
         <Route path="/thank-you" element={<ThankYouPage />} />
       </Routes>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
