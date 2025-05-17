@@ -6,6 +6,7 @@ import { generateOTP } from '../utils/generateOTP';
 import { sendOTPEmail } from '../utils/sendEmail';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  console.log(req.method);
   if (req.method !== 'POST') return res.status(405).end('Method Not Allowed');
 
   try {
