@@ -4,12 +4,15 @@ import User from "../models/User.js";
 import OTPModel from "../models/OTP.js";
 import { generateOTP } from "../utils/generateOTP.js";
 import { sendOTPEmail } from "../utils/sendEmail.js";
+import dbConnect from "../utils/db.js";
+
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   console.log(req.method);
   if (req.method !== "POST") return res.status(405).end("Method Not Allowed");
 
   try {
+    await dbConnect();
     const { email, name, phone, company, message } = req.body;
     if (!email) return res.status(400).json({ message: "Email is required" });
 

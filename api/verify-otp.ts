@@ -3,6 +3,7 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
 import User from "../models/User.js";
 import OTPModel from "../models/OTP.js";
+import dbConnect from "../utils/db.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
@@ -10,6 +11,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
+    await dbConnect();
     const { email, otp } = req.body;
 
     if (!email || !otp) {
