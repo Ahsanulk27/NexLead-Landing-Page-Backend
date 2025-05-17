@@ -6,7 +6,7 @@ import { CheckCircle, AlertCircle } from "lucide-react";
 import axios from "axios";
 
 // API base URL
-const API_URL = import.meta.env.VITE_API_URL;
+// const API_URL = import.meta.env.VITE_API_URL;
 
 type FormData = {
   name: string;
@@ -35,7 +35,7 @@ const ContactForm: React.FC = () => {
   const sendOTP = async (data: FormData) => {
     try {
       setIsSubmitting(true);
-      const response = await axios.post(`${API_URL}/api/send-otp`, data);
+      const response = await axios.post(`/api/send-otp`, data);
       setSuccess("OTP sent to your email!");
       setOtpSent(true);
       setError("");
@@ -54,7 +54,7 @@ const ContactForm: React.FC = () => {
     try {
       setIsSubmitting(true);
       const email = getValues("email");
-      const response = await axios.post(`${API_URL}/api/verify-otp`, {
+      const response = await axios.post(`/api/verify-otp`, {
         email,
         otp,
       });
