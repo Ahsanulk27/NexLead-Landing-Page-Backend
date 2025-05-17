@@ -1,7 +1,7 @@
 // api/send-otp.ts
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import User from '../models/User';
-import OTPModel from '../models/OTP';
+import User from '../models/User.js';
+import OTPModel from '../models/OTP.js';
 import { generateOTP } from '../utils/generateOTP';
 import { sendOTPEmail } from '../utils/sendEmail';
 

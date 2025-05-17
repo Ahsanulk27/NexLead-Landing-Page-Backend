@@ -1,8 +1,8 @@
 // api/verify-otp.ts
 
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import User, { IUser } from "../models/User";
-import OTPModel from "../models/OTP";
+import User from "../models/User.js";
+import OTPModel from "../models/OTP.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
@@ -45,7 +45,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(400).json({ message: "Invalid OTP" });
     }
 
-    const user = (await User.findOne({ email: normalizedEmail })) as IUser;
+    const user = (await User.findOne({ email: normalizedEmail }));
 
     if (user) {
       user.isVerified = true;
