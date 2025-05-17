@@ -1,13 +1,13 @@
 // api/send-otp.ts
-import { VercelRequest, VercelResponse } from '@vercel/node';
-import User from '../models/User.js';
-import OTPModel from '../models/OTP.js';
-import { generateOTP } from '../utils/generateOTP';
-import { sendOTPEmail } from '../utils/sendEmail';
+import { VercelRequest, VercelResponse } from "@vercel/node";
+import User from "../models/User.js";
+import OTPModel from "../models/OTP.js";
+import { generateOTP } from "../utils/generateOTP.js";
+import { sendOTPEmail } from "../utils/sendEmail.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   console.log(req.method);
-  if (req.method !== 'POST') return res.status(405).end('Method Not Allowed');
+  if (req.method !== "POST") return res.status(405).end("Method Not Allowed");
 
   try {
     const { email, name, phone, company, message } = req.body;
@@ -23,7 +23,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const otpRecord = new OTPModel({
       email,
       otp,
-      expiresAt: new Date(Date.now() + 10 * 60 * 1000)
+      expiresAt: new Date(Date.now() + 10 * 60 * 1000),
     });
 
     await otpRecord.save();
