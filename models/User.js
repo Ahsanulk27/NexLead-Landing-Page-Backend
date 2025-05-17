@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+
+import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 // 1. Create Mongoose schema
