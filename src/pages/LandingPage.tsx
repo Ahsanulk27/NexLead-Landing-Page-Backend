@@ -6,6 +6,7 @@ import Benefits from "../components/Benefits";
 import Testimonials from "../components/Testimonials";
 import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
+import About from "../components/About";
 
 const LandingPage: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const LandingPage: React.FC = () => {
       <Header />
       <main>
         <Hero />
+        <About />
         <Services />
         <Benefits />
         <Testimonials />

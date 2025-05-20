@@ -87,7 +87,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-nexlead-dark text-white">
+    <section id="contact" className="py-16 md:py-24 bg-button-dark">
       <div className="container-custom">
         <div
           ref={ref}
@@ -95,25 +95,25 @@ const ContactForm: React.FC = () => {
             inView ? "is-visible" : ""
           }`}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-text-light">
             Ready to Scale Your Business?
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-text-muted max-w-3xl mx-auto">
             Fill out the form below and one of our experts will contact you
             within 24 hours.
           </p>
         </div>
 
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto bg-primary-bg p-8 rounded-lg shadow-lg border border-border-muted">
           {error && (
-            <div className="bg-red-500 bg-opacity-20 border border-red-500 rounded-md p-4 mb-6 flex items-center">
+            <div className="bg-red-500 bg-opacity-20 border border-red-500 rounded-md p-4 mb-6 flex items-center text-text-light">
               <AlertCircle size={20} className="mr-2" />
               <p>{error}</p>
             </div>
           )}
 
           {success && (
-            <div className="bg-green-500 bg-opacity-20 border border-green-500 rounded-md p-4 mb-6 flex items-center">
+            <div className="bg-green-500 bg-opacity-20 border border-green-500 rounded-md p-4 mb-6 flex items-center text-text-light">
               <CheckCircle size={20} className="mr-2" />
               <p>{success}</p>
             </div>
@@ -123,13 +123,16 @@ const ContactForm: React.FC = () => {
             {!otpSent ? (
               <>
                 <div>
-                  <label htmlFor="name" className="block mb-2 font-medium">
+                  <label
+                    htmlFor="name"
+                    className="block mb-2 font-medium text-text-light"
+                  >
                     Full Name*
                   </label>
                   <input
                     id="name"
                     type="text"
-                    className={`input-field text-black ${
+                    className={`input-field bg-button-dark text-text-light placeholder-text-muted focus:bg-button-dark focus:outline-none focus:ring-2 focus:ring-primary-yellow active:bg-button-dark hover:bg-button-dark ${
                       errors.name ? "border-red-500 ring-red-500" : ""
                     }`}
                     placeholder="John Doe"
@@ -143,13 +146,16 @@ const ContactForm: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block mb-2 font-medium">
+                  <label
+                    htmlFor="email"
+                    className="block mb-2 font-medium text-text-light"
+                  >
                     Email Address*
                   </label>
                   <input
                     id="email"
                     type="email"
-                    className={`input-field text-black ${
+                    className={`input-field bg-button-dark text-text-light placeholder-text-muted focus:bg-button-dark focus:outline-none focus:ring-2 focus:ring-primary-yellow active:bg-button-dark hover:bg-button-dark ${
                       errors.email ? "border-red-500 ring-red-500" : ""
                     }`}
                     placeholder="john@example.com"
@@ -169,13 +175,16 @@ const ContactForm: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block mb-2 font-medium">
+                  <label
+                    htmlFor="phone"
+                    className="block mb-2 font-medium text-text-light"
+                  >
                     Phone Number*
                   </label>
                   <input
                     id="phone"
                     type="tel"
-                    className={`input-field text-black ${
+                    className={`input-field bg-button-dark text-text-light placeholder-text-muted focus:bg-button-dark focus:outline-none focus:ring-2 focus:ring-primary-yellow active:bg-button-dark hover:bg-button-dark ${
                       errors.phone ? "border-red-500 ring-red-500" : ""
                     }`}
                     placeholder="+15551234567"
@@ -195,26 +204,32 @@ const ContactForm: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="company" className="block mb-2 font-medium">
+                  <label
+                    htmlFor="company"
+                    className="block mb-2 font-medium text-text-light"
+                  >
                     Company Name
                   </label>
                   <input
                     id="company"
                     type="text"
-                    className="input-field text-black"
+                    className="input-field bg-button-dark text-text-light placeholder-text-muted focus:bg-button-dark focus:outline-none focus:ring-2 focus:ring-primary-yellow active:bg-button-dark hover:bg-button-dark"
                     placeholder="Your Company"
                     {...register("company")}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block mb-2 font-medium">
+                  <label
+                    htmlFor="message"
+                    className="block mb-2 font-medium text-text-light"
+                  >
                     Message
                   </label>
                   <textarea
                     id="message"
                     rows={4}
-                    className="input-field text-black resize-none"
+                    className="input-field bg-button-dark text-text-light placeholder-text-muted focus:bg-button-dark focus:outline-none focus:ring-2 focus:ring-primary-yellow active:bg-button-dark hover:bg-button-dark resize-none"
                     placeholder="Tell us about your business needs..."
                     {...register("message")}
                   ></textarea>
@@ -222,20 +237,23 @@ const ContactForm: React.FC = () => {
               </>
             ) : (
               <div>
-                <div className="bg-nexlead-green bg-opacity-20 border border-nexlead-green rounded-md p-4 mb-6 flex items-center">
+                <div className="bg-primary-yellow bg-opacity-20 border border-primary-yellow rounded-md p-4 mb-6 flex items-center text-text-light">
                   <CheckCircle size={20} className="mr-2" />
                   <p>
                     We've sent a verification code to your email. Please enter
                     it below.
                   </p>
                 </div>
-                <label htmlFor="otp" className="block mb-2 font-medium">
+                <label
+                  htmlFor="otp"
+                  className="block mb-2 font-medium text-text-light"
+                >
                   Verification Code*
                 </label>
                 <input
                   id="otp"
                   type="text"
-                  className="input-field text-black"
+                  className="input-field bg-button-dark text-text-light placeholder-text-muted focus:bg-button-dark focus:outline-none focus:ring-2 focus:ring-primary-yellow active:bg-button-dark hover:bg-button-dark"
                   placeholder="Enter the 6-digit code"
                   value={otp}
                   onChange={(e) => setOtp(e.target.value)}
@@ -263,7 +281,3 @@ const ContactForm: React.FC = () => {
 };
 
 export default ContactForm;
-
-// deployed to github but reevaluate deployment process sicen you have your backend and frontend together, check if you need to deploy them spearately or not
-// delete current repo if needed and start fresh
-// check chatgpt for reference

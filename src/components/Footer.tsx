@@ -1,91 +1,175 @@
-import React from 'react'
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react'
-import Logo from './Logo'
+import React from "react";
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
+import Logo from "./Logo";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-nexlead-black text-white pt-16 pb-8">
-      <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          <div>
-            <div className="mb-6">
-              <Logo />
+    <footer className="bg-button-dark text-text-light">
+      <div className="container-custom py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="space-y-4">
+            <div className="w-28 h-10 overflow-hidden">
+              <img
+                src="src/images/logo.png"
+                alt="logo"
+                className="w-full h-full object-cover scale-[2.6] object-center"
+              />
             </div>
-            <p className="text-gray-400 mb-6">
-              NexLead Solutions provides premium business process outsourcing services to help companies scale faster and more efficiently.
+            <p className="text-text-muted">
+              Transforming businesses through innovative BPO solutions.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-nexlead-green transition-colors" aria-label="Facebook">
+              <a
+                href="#"
+                className="text-text-muted hover:text-primary-yellow transition-colors"
+                aria-label="Facebook"
+              >
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-nexlead-green transition-colors" aria-label="Twitter">
+              <a
+                href="#"
+                className="text-text-muted hover:text-primary-yellow transition-colors"
+                aria-label="Twitter"
+              >
                 <Twitter size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-nexlead-green transition-colors" aria-label="Instagram">
+              <a
+                href="#"
+                className="text-text-muted hover:text-primary-yellow transition-colors"
+                aria-label="Instagram"
+              >
                 <Instagram size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-nexlead-green transition-colors" aria-label="LinkedIn">
+              <a
+                href="#"
+                className="text-text-muted hover:text-primary-yellow transition-colors"
+                aria-label="LinkedIn"
+              >
                 <Linkedin size={20} />
               </a>
             </div>
           </div>
-          
+
           <div>
-            <h3 className="text-lg font-bold mb-6">Quick Links</h3>
-            <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-nexlead-green transition-colors">Home</a></li>
-              <li><a href="#services" className="text-gray-400 hover:text-nexlead-green transition-colors">Services</a></li>
-              <li><a href="#benefits" className="text-gray-400 hover:text-nexlead-green transition-colors">Benefits</a></li>
-              <li><a href="#testimonials" className="text-gray-400 hover:text-nexlead-green transition-colors">Testimonials</a></li>
-              <li><a href="#contact" className="text-gray-400 hover:text-nexlead-green transition-colors">Contact Us</a></li>
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href="#about"
+                  className="text-text-muted hover:text-primary-yellow transition-colors"
+                >
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  className="text-text-muted hover:text-primary-yellow transition-colors"
+                >
+                  Services
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#benefits"
+                  className="text-text-muted hover:text-primary-yellow transition-colors"
+                >
+                  Benefits
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="text-text-muted hover:text-primary-yellow transition-colors"
+                >
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
-          
+
           <div>
-            <h3 className="text-lg font-bold mb-6">Services</h3>
-            <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-nexlead-green transition-colors">Outbound Calling</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-nexlead-green transition-colors">Lead Generation</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-nexlead-green transition-colors">24/7 Support</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-nexlead-green transition-colors">Sales Analytics</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-nexlead-green transition-colors">Custom Solutions</a></li>
+            <h4 className="text-lg font-semibold mb-4">Our Services</h4>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href="#services"
+                  className="text-text-muted hover:text-primary-yellow transition-colors"
+                >
+                  Outbound Calling
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  className="text-text-muted hover:text-primary-yellow transition-colors"
+                >
+                  Lead Generation
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  className="text-text-muted hover:text-primary-yellow transition-colors"
+                >
+                  Customer Support
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  className="text-text-muted hover:text-primary-yellow transition-colors"
+                >
+                  Sales Analytics
+                </a>
+              </li>
             </ul>
           </div>
-          
+
           <div>
-            <h3 className="text-lg font-bold mb-6">Contact Us</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <Phone size={20} className="mr-3 text-nexlead-green flex-shrink-0 mt-1" />
-                <span className="text-gray-400">+1 (555) 123-4567</span>
+            <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
+            <ul className="space-y-2">
+              <li className="text-text-muted">
+                2 Grayscroft Road, London,
+                <br />
+                SW16 5UP, United Kingdom
               </li>
-              <li className="flex items-start">
-                <Mail size={20} className="mr-3 text-nexlead-green flex-shrink-0 mt-1" />
-                <span className="text-gray-400">info@nexleadsolutions.com</span>
+              <li>
+                <a
+                  href="tel:+15551234567"
+                  className="text-text-muted hover:text-primary-yellow transition-colors"
+                >
+                  +44 790 3704 083
+                </a>
               </li>
-              <li className="flex items-start">
-                <MapPin size={20} className="mr-3 text-nexlead-green flex-shrink-0 mt-1" />
-                <span className="text-gray-400">123 Business Avenue, Suite 456, New York, NY 10001</span>
+              <li>
+                <a
+                  href="mailto:info@nexlead.com"
+                  className="text-text-muted hover:text-primary-yellow transition-colors"
+                >
+                  nexleadtech@gmail.com
+                </a>
               </li>
             </ul>
           </div>
         </div>
-        
-        <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-500 mb-4 md:mb-0">
-              &copy; {new Date().getFullYear()} NexLead Solutions. All rights reserved.
-            </p>
-            <div className="flex space-x-6">
-              <a href="#" className="text-gray-500 hover:text-nexlead-green transition-colors text-sm">Privacy Policy</a>
-              <a href="#" className="text-gray-500 hover:text-nexlead-green transition-colors text-sm">Terms of Service</a>
-              <a href="#" className="text-gray-500 hover:text-nexlead-green transition-colors text-sm">Sitemap</a>
-            </div>
-          </div>
+
+        <div className="border-t border-border-muted mt-12 pt-8 text-center">
+          <p className="text-text-muted">
+            © {new Date().getFullYear()} NexLead. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
