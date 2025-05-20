@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <div className="w-28 h-10 overflow-hidden">
               <img
-                src="src/images/logo.png"
+                src="public/images/logo.png"
                 alt="logo"
                 className="w-full h-full object-cover scale-[2.6] object-center"
               />
