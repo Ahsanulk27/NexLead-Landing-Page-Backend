@@ -5,8 +5,6 @@ import { useInView } from "react-intersection-observer";
 import { CheckCircle, AlertCircle } from "lucide-react";
 import axios from "axios";
 
-// API base URL
-// const API_URL = import.meta.env.VITE_API_URL;
 
 type FormData = {
   name: string;
