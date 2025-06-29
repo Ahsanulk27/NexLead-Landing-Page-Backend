@@ -131,6 +131,30 @@ const Footer: React.FC = () => {
                   Sales Analytics
                 </a>
               </li>
+              <li>
+                <a
+                  href="#services"
+                  className="text-text-muted hover:text-primary-yellow transition-colors"
+                >
+                  Software Devlopment
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  className="text-text-muted hover:text-primary-yellow transition-colors"
+                >
+                  AI Integration
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  className="text-text-muted hover:text-primary-yellow transition-colors"
+                >
+                  Sales Coaching
+                </a>
+              </li>
             </ul>
           </div>
 
