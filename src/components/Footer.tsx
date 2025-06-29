@@ -155,6 +155,14 @@ const Footer: React.FC = () => {
                   Sales Coaching
                 </a>
               </li>
+              <li>
+                <a
+                  href="#services"
+                  className="text-text-muted hover:text-primary-yellow transition-colors"
+                >
+                  Business Consultancy
+                </a>
+              </li>
             </ul>
           </div>
 
