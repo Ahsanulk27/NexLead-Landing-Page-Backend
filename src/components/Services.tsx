@@ -1,31 +1,46 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
-import { PhoneCall, Users, Clock, BarChart } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
+import {
+  PhoneCall,
+  Users,
+  Clock,
+  BarChart,
+  MonitorSmartphone,
+  LayoutDashboard,
+  Briefcase,
+} from "lucide-react";
 
-const services = [
-  {
-    icon: <PhoneCall size={40} className="text-primary-yellow" />,
-    title: "Outbound Calling",
-    description:
-      "Professional outbound calling services to generate leads, qualify prospects, and set appointments.",
-  },
+// Updated features from "What You Get"
+const features = [
   {
     icon: <Users size={40} className="text-primary-yellow" />,
-    title: "Lead Generation",
+    title: "Your Own Sales Unit",
     description:
-      "Targeted lead generation campaigns to fill your sales pipeline with qualified prospects.",
+      "Trained SDRs and cold callers dialing under your brand, representing you to prospects daily.",
+    bg: "bg-gradient-to-br from-primary-bg to-gray-900",
+  },
+  {
+    icon: <PhoneCall size={40} className="text-primary-yellow" />,
+    title: "Follow-Up + Closing Execution",
+    description:
+      "Automated pipelines with real human follow-up — so no leads fall through the cracks.",
+    bg: "bg-gradient-to-br from-primary-bg to-gray-900",
   },
   {
     icon: <Clock size={40} className="text-primary-yellow" />,
-    title: "24/7 Support",
+    title: "Client Experience Ops",
     description:
-      "Round-the-clock customer support to ensure your clients always receive timely assistance.",
+      "Dedicated virtual assistants and support reps who delight your customers and handle the backend.",
+    bg: "bg-gradient-to-br from-primary-bg to-gray-900",
   },
   {
-    icon: <BarChart size={40} className="text-primary-yellow" />,
-    title: "Sales Analytics",
+    icon: <LayoutDashboard size={40} className="text-primary-yellow" />,
+    title: "Dashboards + CRM Management",
     description:
-      "Comprehensive sales analytics and reporting to track performance and optimize strategies.",
+      "Fully managed, always clean and current. You never need to log in — we run it for you.",
+    bg: "bg-gradient-to-br from-primary-bg to-gray-900",
   },
 ];
 
@@ -33,23 +48,150 @@ const ServiceCard: React.FC<{
   icon: React.ReactNode;
   title: string;
   description: string;
-  delay: number;
-}> = ({ icon, title, description, delay }) => {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  index: number;
+}> = ({ icon, title, description, index }) => {
+  const [isFlipped, setIsFlipped] = React.useState(false);
+  const [isHovered, setIsHovered] = React.useState(false);
 
   return (
-    <div
-      ref={ref}
-      className={`card animate-on-scroll ${inView ? "is-visible" : ""}`}
-      style={{ transitionDelay: `${delay * 0.1}s` }}
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.15, duration: 0.6 }}
+      viewport={{ once: true, margin: "-50px" }}
+      className="h-full"
     >
-      <div className="mb-4">{icon}</div>
-      <h3 className="text-xl font-bold mb-3 text-text-light">{title}</h3>
-      <p className="text-text-muted">{description}</p>
-    </div>
+      <div
+        className="h-full perspective-1000"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={() => setIsFlipped(!isFlipped)}
+      >
+        <motion.div
+          className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d"
+          animate={{ rotateY: isFlipped || isHovered ? 180 : 0 }}
+          transition={{ duration: 0.1 }}
+        >
+          {/* Front of Card */}
+          <motion.div
+            className="backface-hidden bg-gradient-to-br from-primary-bg to-primary-yellow/10 border border-primary-yellow/20 rounded-xl p-8 shadow-lg h-full flex flex-col"
+            initial={{ opacity: 1 }}
+            animate={{ opacity: isFlipped || isHovered ? 0 : 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="mb-6">{icon}</div>
+            <h3 className="text-xl font-bold mb-3 text-text-light">{title}</h3>
+            <p className="text-text-muted flex-grow">{description}</p>
+            <motion.div
+              className="mt-4 text-primary-yellow text-sm font-medium"
+              animate={{ opacity: isHovered ? 1 : 0 }}
+            >
+              Click to learn more →
+            </motion.div>
+          </motion.div>
+
+          {/* Back of Card */}
+          <motion.div
+            className="absolute top-0 left-0 w-full h-full backface-hidden bg-gradient-to-br from-primary-bg to-primary-yellow/10 border border-primary-yellow/30 rounded-xl p-8 shadow-lg flex flex-col justify-center rotate-y-180"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isFlipped || isHovered ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <h3 className="text-xl font-bold mb-3 text-primary-yellow">
+              {title}
+            </h3>
+            <div className="space-y-2 text-text-muted">
+              <p className="flex items-center">
+                <span className="w-2 h-2 rounded-full bg-primary-yellow mr-2"></span>
+                {description}
+              </p>
+              <p className="flex items-center">
+                <span className="w-2 h-2 rounded-full bg-primary-yellow mr-2"></span>
+                Fully managed by our team
+              </p>
+              <p className="flex items-center">
+                <span className="w-2 h-2 rounded-full bg-primary-yellow mr-2"></span>
+                Weekly performance reports
+              </p>
+            </div>
+            <button className="mt-6 px-4 py-2 bg-primary-yellow/10 border border-primary-yellow/30 text-primary-yellow rounded-lg text-sm hover:bg-primary-yellow/20 transition-colors">
+              Learn More
+            </button>
+          </motion.div>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
+
+const PackageCard: React.FC<{
+  title: string;
+  features: string[];
+  index: number;
+  highlighted?: boolean;
+}> = ({ title, features, index, highlighted = false }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ delay: 0.3 + index * 0.15, duration: 0.6 }}
+      viewport={{ once: true }}
+      className={`relative ${highlighted ? "z-10" : ""}`}
+    >
+      {highlighted && (
+        <motion.div
+          className="absolute -inset-1 bg-primary-yellow/20 blur-lg rounded-lg"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+          viewport={{ once: true }}
+        />
+      )}
+      <div
+        className={`bg-button-dark text-text-light rounded-lg shadow-lg overflow-hidden h-full relative ${
+          highlighted
+            ? "border-2 border-primary-yellow"
+            : "border border-gray-800"
+        }`}
+      >
+        <div
+          className={`py-4 ${
+            highlighted ? "bg-primary-yellow/10" : "bg-black bg-opacity-20"
+          }`}
+        >
+          <h4 className="text-xl font-bold text-center">{title}</h4>
+        </div>
+        <div className="p-6">
+          <ul className="text-sm text-left mb-6 space-y-3">
+            {features.map((feature, i) => (
+              <motion.li
+                key={i}
+                className="flex items-start"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 + index * 0.15 + i * 0.05 }}
+                viewport={{ once: true }}
+              >
+                <span className="w-2 h-2 rounded-full bg-primary-yellow mt-2 mr-2 flex-shrink-0"></span>
+                <span className="text-text-muted">{feature}</span>
+              </motion.li>
+            ))}
+          </ul>
+          <motion.a
+            href="#contact"
+            className={`block w-full font-bold py-3 rounded-md text-center transition-colors ${
+              highlighted
+                ? "bg-primary-yellow text-accent-contrast hover:bg-opacity-90"
+                : "bg-gray-800 text-text-light hover:bg-gray-700"
+            }`}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Get Started
+          </motion.a>
+        </div>
+      </div>
+    </motion.div>
   );
 };
 
@@ -60,123 +202,164 @@ const Services: React.FC = () => {
   });
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-primary-bg">
-      <div className="container-custom">
-        <div
-          ref={ref}
-          className={`text-center mb-16 animate-on-scroll ${
-            inView ? "is-visible" : ""
-          }`}
-        >
-          <h2 className="section-title">Our Premium Services</h2>
-          <p className="section-subtitle">
-            We provide comprehensive business process outsourcing solutions
-            tailored to your specific needs.
-          </p>
-        </div>
+    <section
+      id="services"
+      className="py-16 md:py-24 bg-primary-bg relative overflow-hidden"
+    >
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden opacity-10 pointer-events-none">
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-40 h-40 rounded-full bg-primary-yellow blur-3xl"
+          animate={{
+            x: [0, 50, 0],
+            y: [0, -30, 0],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/3 right-1/3 w-60 h-60 rounded-full bg-primary-yellow blur-3xl"
+          animate={{
+            x: [0, -40, 0],
+            y: [0, 40, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3,
+          }}
+        />
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
+      <div className="container-custom relative">
+        {/* Title */}
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <motion.h2
+            className="section-title"
+            whileInView={{
+              textShadow: "0 0 10px rgba(234, 179, 8, 0.3)",
+            }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          >
+            <TypeAnimation
+              sequence={[
+                "What You Get",
+                1000,
+                "Your Growth Stack",
+                1000,
+                "NexLead Autopilot",
+                1000,
+              ]}
+              wrapper="span"
+              speed={25}
+              repeat={Infinity}
+            />
+          </motion.h2>
+          <motion.p
+            className="section-subtitle max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            We don't offer services — we install{" "}
+            <span className="text-primary-yellow font-semibold">
+              growth engines
+            </span>
+            . Here's what we deploy to help you scale on autopilot.
+          </motion.p>
+        </motion.div>
+
+        {/* Features */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+          {features.map((feature, index) => (
             <ServiceCard
               key={index}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-              delay={index + 1}
+              icon={feature.icon}
+              title={feature.title}
+              description={feature.description}
+              index={index}
             />
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold mb-8 text-text-light">
-            Choose Your Package
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Bronze Package */}
-            <div className="bg-button-dark text-text-light rounded-lg shadow-lg overflow-hidden">
-              <div className="bg-black bg-opacity-20 py-4">
-                <h4 className="text-xl font-bold">BRONZE PACKAGE</h4>
-              </div>
-              <div className="p-6">
-                <div className="flex items-center justify-center mb-4">
-                  <Users size={24} className="mr-2 text-primary-yellow" />
-                  <p className="text-xl font-semibold">2 CALLERS</p>
-                </div>
-                <div className="flex items-center justify-center mb-4">
-                  <Clock size={24} className="mr-2 text-primary-yellow" />
-                  <p className="text-xl font-semibold">5 HRS/DAY · MON–FRI</p>
-                </div>
-                <ul className="text-sm text-left mb-6 list-disc list-inside space-y-2 text-text-muted">
-                  <li>Fully managed by our internal team</li>
-                  <li>Consistent daily outreach</li>
-                  <li>Great for testing or dependable support</li>
-                </ul>
-                <a
-                  href="#contact"
-                  className="block w-full bg-primary-yellow text-accent-contrast font-bold py-3 rounded-md text-center hover:bg-opacity-90 transition-colors"
-                >
-                  Get Started
-                </a>
-              </div>
-            </div>
+        {/* Packages */}
+        <motion.div
+          className="mt-20 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.h3
+            className="text-2xl font-bold mb-4 text-text-light"
+            whileInView={{ scale: [0.98, 1] }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            Choose Your Autopilot Package
+          </motion.h3>
+          <motion.p
+            className="text-text-muted mb-10 max-w-2xl mx-auto"
+            whileInView={{ x: [-10, 0], opacity: [0.9, 1] }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+          >
+            From foundational support to a full remote growth department — pick
+            your growth tier.
+          </motion.p>
 
-            {/* Silver Package */}
-            <div className="bg-button-dark text-text-light rounded-lg shadow-lg overflow-hidden">
-              <div className="bg-black bg-opacity-20 py-4">
-                <h4 className="text-xl font-bold">SILVER PACKAGE</h4>
-              </div>
-              <div className="p-6">
-                <div className="flex items-center justify-center mb-4">
-                  <Users size={24} className="mr-2 text-primary-yellow" />
-                  <p className="text-xl font-semibold">2 CALLERS</p>
-                </div>
-                <div className="flex items-center justify-center mb-4">
-                  <Clock size={24} className="mr-2 text-primary-yellow" />
-                  <p className="text-xl font-semibold">5 HRS/DAY · MON–FRI</p>
-                </div>
-                <ul className="text-sm text-left mb-6 list-disc list-inside space-y-2 text-text-muted">
-                  <li>500 free leads/month</li>
-                  <li>Dialing software included</li>
-                  <li>Tech setup managed for you</li>
-                </ul>
-                <a
-                  href="#contact"
-                  className="block w-full bg-primary-yellow text-accent-contrast font-bold py-3 rounded-md text-center hover:bg-opacity-90 transition-colors"
-                >
-                  Get Started
-                </a>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
+            <PackageCard
+              title="FOUNDATION PACKAGE"
+              features={[
+                "1 campaign (cold calling or digital)",
+                "1 SDR + 1 VA",
+                "Basic CRM setup",
+                "Monthly reporting",
+                "30-min onboarding — hands-off after",
+              ]}
+              index={0}
+            />
 
-            {/* Gold Package */}
-            <div className="bg-button-dark text-text-light rounded-lg shadow-lg overflow-hidden">
-              <div className="bg-black bg-opacity-20 py-4">
-                <h4 className="text-xl font-bold">GOLD PACKAGE</h4>
-              </div>
-              <div className="p-6">
-                <div className="flex items-center justify-center mb-4">
-                  <Users size={24} className="mr-2 text-primary-yellow" />
-                  <p className="text-xl font-semibold">2 CALLERS + 1 VA</p>
-                </div>
-                <div className="flex items-center justify-center mb-4">
-                  <Clock size={24} className="mr-2 text-primary-yellow" />
-                  <p className="text-xl font-semibold">5 HRS/DAY · MON–FRI</p>
-                </div>
-                <ul className="text-sm text-left mb-6 list-disc list-inside space-y-2 text-text-muted">
-                  <li>Everything in Silver package</li>
-                  <li>Dedicated VA for follow-ups & CRM</li>
-                  <li>Priority support & lead nurturing</li>
-                </ul>
-                <a
-                  href="#contact"
-                  className="block w-full bg-primary-yellow text-accent-contrast font-bold py-3 rounded-md text-center hover:bg-opacity-90 transition-colors"
-                >
-                  Get Started
-                </a>
-              </div>
-            </div>
+            <PackageCard
+              title="GROWTH ENGINE"
+              features={[
+                "Website + brand refresh",
+                "CRM + SOPs + follow-up automation",
+                "Cold calling + digital outreach team",
+                "Operator mentorship access",
+                "Weekly insights & team reporting",
+              ]}
+              index={1}
+              highlighted
+            />
+
+            <PackageCard
+              title="ELITE PARTNER"
+              features={[
+                "Full growth department: SDRs, VAs, strategist",
+                "Graphics + content creation team",
+                "Custom dashboards & client portals",
+                "Private Slack + VIP support",
+                "Quarterly strategy summits",
+              ]}
+              index={2}
+            />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

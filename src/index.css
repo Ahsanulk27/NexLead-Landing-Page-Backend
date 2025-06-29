@@ -14,6 +14,55 @@
   }
 }
 
+/* 3D flip card styles */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Typewriter cursor */
+.react-type-animation::after {
+  content: "|";
+  animation: blink 0.3s step-end infinite;
+}
+
+/* Button gradient animation */
+.btn-primary {
+  transition: all 0.3s ease;
+}
+
+/* Typewriter cursor */
+.react-type-animation::after {
+  content: "|";
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { opacity: 1 }
+  50% { opacity: 0 }
+}
+
+/* Card particle overflow */
+.card-container {
+  overflow: hidden;
+}
+
+@keyframes blink {
+  from, to { opacity: 1 }
+  50% { opacity: 0 }
+}
+
 @layer components {
   .container-custom {
     @apply max-w-screen-2xl mx-auto px-2 sm:px-4 lg:px-8;
