@@ -18,7 +18,6 @@ const LandingPage: React.FC = () => {
         <About />
         <Services />
         <Benefits />
-        <Pricing />
         <Testimonials />
         <ContactForm />
       </main>
