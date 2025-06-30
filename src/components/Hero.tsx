@@ -17,25 +17,34 @@ const Hero: React.FC = () => {
   const vantaEffect = useRef<any>(null);
 
   useEffect(() => {
-    if (!vantaEffect.current && vantaRef.current) {
-      vantaEffect.current = GLOBE({
-        el: vantaRef.current,
-        THREE: THREE,
-        mouseControls: true,
-        touchControls: true,
-        minHeight: 200.0,
-        minWidth: 200.0,
-        scale: 1.0,
-        scaleMobile: 1.0,
-        color: 0xfacc15, // NexLead yellow for globe lines
-        backgroundColor: 0x35020a, // bg-primary-bg
-        size: 1.1,
-        points: 12.0,
-        maxDistance: 20.0,
-        spacing: 18.0,
-      });
-    }
+    let timeoutId: NodeJS.Timeout;
+
+    const initializeVanta = () => {
+      if (!vantaEffect.current && vantaRef.current) {
+        vantaEffect.current = GLOBE({
+          el: vantaRef.current,
+          THREE: THREE,
+          mouseControls: true,
+          touchControls: true,
+          minHeight: 200.0,
+          minWidth: 200.0,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          color: 0xfacc15,
+          backgroundColor: 0x35020a,
+          size: 1.1,
+          points: 12.0,
+          maxDistance: 20.0,
+          spacing: 18.0,
+        });
+      }
+    };
+
+    // Delay Vanta until after DOM settles
+    timeoutId = setTimeout(initializeVanta, 500); // Try 300–800ms if needed
+
     return () => {
+      clearTimeout(timeoutId);
       if (vantaEffect.current) {
         vantaEffect.current.destroy();
         vantaEffect.current = null;
