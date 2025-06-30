@@ -274,11 +274,16 @@ const Services: React.FC = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             viewport={{ once: true }}
           >
-            We don't offer services — we install{" "}
+            We don’t offer services — we install{" "}
             <span className="text-primary-yellow font-semibold">
               growth engines
             </span>
-            . Here's what we deploy to help you scale on autopilot.
+            , powered by an{" "}
+            <span className="text-primary-yellow font-semibold">
+              AI + human hybrid model
+            </span>
+            . Our system combines intelligent automation with real operators to
+            help you scale — fast and hands-free.
           </motion.p>
         </motion.div>
 

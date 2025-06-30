@@ -11,7 +11,7 @@ import {
   BarChart2,
   Zap,
 } from "lucide-react";
-import { TypeAnimation } from 'react-type-animation';
+import { TypeAnimation } from "react-type-animation";
 
 const benefits = [
   {
@@ -80,7 +80,7 @@ const BenefitCard: React.FC<{
   index: number;
 }> = ({ icon, title, description, color, index }) => {
   const [isHovered, setIsHovered] = React.useState(false);
-  
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -89,7 +89,7 @@ const BenefitCard: React.FC<{
       viewport={{ once: true, margin: "-50px" }}
       className="h-full"
     >
-      <div 
+      <div
         className="h-full relative overflow-hidden"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -102,11 +102,11 @@ const BenefitCard: React.FC<{
                 <motion.div
                   key={i}
                   className={`absolute rounded-full ${
-                    color === "yellow" 
-                      ? "bg-primary-yellow/20" 
+                    color === "yellow"
+                      ? "bg-primary-yellow/20"
                       : "bg-nexlead-green/20"
                   }`}
-                  initial={{ 
+                  initial={{
                     opacity: 0,
                     x: Math.random() * 100 - 50,
                     y: Math.random() * 100 - 50,
@@ -137,21 +137,22 @@ const BenefitCard: React.FC<{
         {/* Card Content */}
         <motion.div
           className={`h-full p-8 rounded-xl border ${
-            color === "yellow" 
-              ? "border-primary-yellow/20 hover:border-primary-yellow/40" 
+            color === "yellow"
+              ? "border-primary-yellow/20 hover:border-primary-yellow/40"
               : "border-nexlead-green/20 hover:border-nexlead-green/40"
           } bg-gradient-to-br from-primary-bg to-gray-900/50 flex flex-col transition-all duration-300`}
-          whileHover={{ 
+          whileHover={{
             y: -5,
-            boxShadow: color === "yellow" 
-              ? "0 10px 30px -10px rgba(234, 179, 8, 0.2)" 
-              : "0 10px 30px -10px rgba(74, 222, 128, 0.2)"
+            boxShadow:
+              color === "yellow"
+                ? "0 10px 30px -10px rgba(234, 179, 8, 0.2)"
+                : "0 10px 30px -10px rgba(74, 222, 128, 0.2)",
           }}
         >
           <motion.div
             className={`w-14 h-14 rounded-lg ${
-              color === "yellow" 
-                ? "bg-primary-yellow/10" 
+              color === "yellow"
+                ? "bg-primary-yellow/10"
                 : "bg-nexlead-green/10"
             } flex items-center justify-center mb-6`}
             animate={{
@@ -162,26 +163,26 @@ const BenefitCard: React.FC<{
           >
             {icon}
           </motion.div>
-          
+
           <h3 className="text-xl font-bold mb-3 text-text-light">{title}</h3>
-          
-          <motion.p 
+
+          <motion.p
             className="text-text-muted flex-grow"
             animate={{
-              color: isHovered 
-                ? color === "yellow" 
-                  ? "rgba(255,255,255,0.9)" 
+              color: isHovered
+                ? color === "yellow"
+                  ? "rgba(255,255,255,0.9)"
                   : "rgba(255,255,255,0.9)"
                 : "rgba(163, 163, 163, 1)",
             }}
           >
             {description}
           </motion.p>
-          
+
           <motion.div
             className={`mt-6 h-1 ${
-              color === "yellow" 
-                ? "bg-primary-yellow/30" 
+              color === "yellow"
+                ? "bg-primary-yellow/30"
                 : "bg-nexlead-green/30"
             } rounded-full overflow-hidden`}
           >
@@ -208,7 +209,10 @@ const Benefits: React.FC = () => {
   });
 
   return (
-    <section id="benefits" className="py-16 md:py-24 bg-primary-bg relative overflow-hidden">
+    <section
+      id="benefits"
+      className="py-16 md:py-24 bg-primary-bg relative overflow-hidden"
+    >
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <motion.div
@@ -257,11 +261,11 @@ const Benefits: React.FC = () => {
           >
             <TypeAnimation
               sequence={[
-                'Why NexLead Autopilot',
+                "Why NexLead Autopilot",
                 1500,
-                'Your Growth Advantage',
+                "Your Growth Advantage",
                 1500,
-                'Built for Scaling',
+                "Built for Scaling",
                 1500,
               ]}
               wrapper="span"
@@ -269,7 +273,7 @@ const Benefits: React.FC = () => {
               repeat={Infinity}
             />
           </motion.h2>
-          
+
           <motion.p
             className="section-subtitle max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
@@ -277,8 +281,13 @@ const Benefits: React.FC = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             viewport={{ once: true }}
           >
-            We don't just give you people — we build, run, and optimize your{" "}
-            <span className="text-primary-yellow font-semibold">growth machine</span>. Here's what you get by partnering with us.
+            We don’t just give you people — we deploy an{" "}
+            <span className="text-primary-yellow font-semibold">
+              AI + human hybrid model
+            </span>{" "}
+            to build, run, and optimize your growth engine. Think scalable
+            execution, intelligent systems, and faster revenue — all done for
+            you.
           </motion.p>
         </motion.div>
 

@@ -78,6 +78,11 @@ const Hero: React.FC = () => {
                 operate the engine that drives your business forward — without
                 you lifting a finger.
               </p>
+              <p className="text-md md:text-lg text-primary-yellow font-medium mb-8">
+                Powered by a human + AI hybrid model — using machine learning to
+                accelerate your business growth.
+              </p>
+
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="#contact" // you can update this to a Calendly or actual form section
