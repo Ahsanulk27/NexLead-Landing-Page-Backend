@@ -3,8 +3,9 @@ import axios from "axios";
 import User from "../models/User.js";
 import OTPModel from "../models/OTP.js";
 import dbConnect from "../utils/db.js";
+import qs from "qs";
 
-const GOOGLE_SHEET_URL = process.env.GOOGLE_SHEET_WEBHOOK_URL; // <-- Replace with your real URL
+const GOOGLE_SHEET_URL = process.env.GOOGLE_SHEET_WEBHOOK_URL;
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
@@ -26,16 +27,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const otpRecord = await OTPModel.findOne({
       email: normalizedEmail,
-      otp: otp,
+      otp,
       expiresAt: { $gt: new Date() },
     });
-
-    console.log("Found OTP record:", otpRecord);
 
     if (!otpRecord) {
       const expiredOTP = await OTPModel.findOne({
         email: normalizedEmail,
-        otp: otp,
+        otp,
       });
 
       if (expiredOTP) {
@@ -43,6 +42,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           .status(400)
           .json({ message: "OTP has expired. Please request a new one." });
       }
+
       return res.status(400).json({ message: "Invalid OTP" });
     }
 
@@ -51,36 +51,39 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (user) {
       user.isVerified = true;
       await user.save();
-      console.log("User verified:", user.email);
+      console.log("✅ User verified:", user.email);
 
       // ✅ Send to Google Sheets
       try {
         if (!GOOGLE_SHEET_URL) {
-          console.log("GOOGLE_SHEET_URL is not set");
-          return res.status(500).json({ message: "Google Sheet URL is not set" });
+          console.error("❌ GOOGLE_SHEET_URL is not set");
+          return res
+            .status(500)
+            .json({ message: "Google Sheet URL is not configured" });
         }
 
-        await axios.post(
-          GOOGLE_SHEET_URL,
-          null,
-          {
-            params: {
-              name: user.name || "",
-              email: user.email,
-              phone: user.phone || "",
-              company: user.company || "",
-              message: user.message || "",
-            },
-          }
-        );
-        console.log("Data sent to Google Sheets successfully.");
-      } catch (sheetErr) {
-        console.error("Error sending to Google Sheets:", sheetErr);
-        // Optional: don't fail the OTP process just because Sheets failed
+        const formData = qs.stringify({
+          name: user.name || "",
+          email: user.email,
+          phone: user.phone || "",
+          company: user.company || "",
+          message: user.message || "",
+        });
+
+        await axios.post(GOOGLE_SHEET_URL, formData, {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+
+        console.log("✅ Data sent to Google Sheets successfully");
+      } catch (sheetErr: any) {
+        console.error("❌ Error sending to Google Sheets:", sheetErr?.response?.data || sheetErr.message);
+        // Optionally: don't fail the whole process if sheets fail
       }
     }
 
-    // Delete used OTP
+    // ✅ Delete the used OTP
     await OTPModel.deleteOne({ _id: otpRecord._id });
 
     return res.status(200).json({
@@ -92,7 +95,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       },
     });
   } catch (error) {
-    console.error("Error verifying OTP:", error);
+    console.error("❌ Error verifying OTP:", error);
     return res.status(500).json({ message: "Error verifying OTP" });
   }
 }
