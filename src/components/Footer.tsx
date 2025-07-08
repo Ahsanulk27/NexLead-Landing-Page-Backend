@@ -170,16 +170,16 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-2">
               <li className="text-text-muted">
-                2 Grayscroft Road, London,
+                Shaptak Square, House# 02, Dhanmondi Road# 16 (New) Road# 27(Old),
                 <br />
-                SW16 5UP, United Kingdom
+                 Dhaka-1209, Bangladesh
               </li>
               <li>
                 <a
-                  href="tel:+15551234567"
+                  href="tel:+8801794640249"
                   className="text-text-muted hover:text-primary-yellow transition-colors"
                 >
-                  +44 790 3704 083
+                  +880 1794 640249
                 </a>
               </li>
               <li>
@@ -187,7 +187,7 @@ const Footer: React.FC = () => {
                   href="mailto:info@nexlead.com"
                   className="text-text-muted hover:text-primary-yellow transition-colors"
                 >
-                  nexleadtech@gmail.com
+                  terry@nexleadsolutions.co
                 </a>
               </li>
             </ul>
