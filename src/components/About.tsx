@@ -1,7 +1,7 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
-import { TypeAnimation } from 'react-type-animation';
+import { TypeAnimation } from "react-type-animation";
 import Tilt from "react-parallax-tilt";
 
 const About: React.FC = () => {
@@ -22,10 +22,10 @@ const About: React.FC = () => {
   };
 
   const cardVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
       y: 50,
-      rotateX: -15
+      rotateX: -15,
     },
     visible: {
       opacity: 1,
@@ -35,23 +35,26 @@ const About: React.FC = () => {
         type: "spring",
         damping: 15,
         stiffness: 100,
-      }
-    }
+      },
+    },
   };
 
   const fadeInVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { 
+      transition: {
         duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99],
       },
     },
   };
 
   return (
-    <section id="about" className="py-16 md:py-24 bg-primary-bg relative overflow-hidden">
+    <section
+      id="about"
+      className="py-16 md:py-24 bg-primary-bg relative overflow-hidden"
+    >
       {/* Animated grid background */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute inset-0 bg-grid-pattern bg-[length:40px_40px]"></div>
@@ -68,12 +71,12 @@ const About: React.FC = () => {
           <h2 className="section-title text-text-light mb-4">
             <TypeAnimation
               sequence={[
-                'About NexLead',
+                "About NexLead",
                 1000,
-                'Your Growth Partner',
+                "Your Growth Partner",
                 1000,
-                'Scaling Experts',
-                1000
+                "Scaling Experts",
+                1000,
               ]}
               wrapper="span"
               speed={25}
@@ -81,19 +84,19 @@ const About: React.FC = () => {
               className="text-primary-yellow"
             />
           </h2>
-          
+
           <motion.p
             className="section-subtitle text-text-muted max-w-2xl mx-auto"
             whileHover={{ scale: 1.02 }}
           >
             <TypeAnimation
               sequence={[
-                'The team behind your fully managed growth engine',
+                "The team behind your fully managed growth engine",
                 2000,
-                'Your outsourced growth department',
+                "Your outsourced growth department",
                 2000,
-                'Premium scaling systems for service businesses',
-                2000
+                "Premium scaling systems for service businesses",
+                2000,
               ]}
               wrapper="span"
               speed={50}
@@ -117,7 +120,7 @@ const About: React.FC = () => {
                 whileHover={{
                   y: -5,
                   borderColor: "rgba(234, 179, 8, 0.3)",
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
               >
                 <div className="flex items-center mb-6">
@@ -129,10 +132,18 @@ const About: React.FC = () => {
                   </h3>
                 </div>
                 <p className="text-lg text-text-muted leading-relaxed">
-                  We're <span className="text-primary-yellow font-medium">NexLead Solutions</span> — 
-                  your dedicated <span className="text-primary-yellow font-medium">growth team</span>. 
-                  We implement enterprise-grade systems that help service businesses 
-                  scale predictably with minimal owner involvement.
+                  We're{" "}
+                  <span className="text-primary-yellow font-medium">
+                    NexLead Solutions
+                  </span>{" "}
+                  — your dedicated{" "}
+                  <span className="text-primary-yellow font-medium">
+                    growth team
+                  </span>{" "}
+                  and Business Process Outsourcing (BPO) partner. We deliver
+                  scalable business solutions, customer experience outsourcing,
+                  and AI-powered automation to help you achieve predictable
+                  revenue growth with minimal owner involvement.
                 </p>
               </motion.div>
             </Tilt>
@@ -145,7 +156,7 @@ const About: React.FC = () => {
                 whileHover={{
                   y: -5,
                   borderColor: "rgba(234, 179, 8, 0.3)",
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
               >
                 <div className="flex items-center mb-6">
@@ -158,12 +169,12 @@ const About: React.FC = () => {
                 </div>
                 <ul className="space-y-4">
                   {[
-                    "Done-For-You Growth Systems",
-                    "Operator-Led Strategy",
-                    "Elite Branding & Creative",
-                    "Human-Powered Execution"
+                    "Comprehensive BPO Solutions",
+                    "Customer Service BPO & Experience Outsourcing",
+                    "AI-Powered Automation for Efficiency",
+                    "Sales Outsourcing & Revenue Growth",
                   ].map((item, index) => (
-                    <motion.li 
+                    <motion.li
                       key={index}
                       className="flex items-center"
                       initial={{ opacity: 0, x: -20 }}
@@ -181,7 +192,7 @@ const About: React.FC = () => {
         </div>
 
         {/* Animated stats bar */}
-        <motion.div 
+        <motion.div
           className="mt-16 bg-gradient-to-r from-primary-yellow/10 to-transparent p-6 rounded-xl border border-gray-800"
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -192,14 +203,16 @@ const About: React.FC = () => {
               { value: "200+", label: "Clients Served" },
               { value: "3.5x", label: "Avg. Growth" },
               { value: "24/7", label: "Support" },
-              { value: "30min", label: "Onboarding" }
+              { value: "30min", label: "Onboarding" },
             ].map((stat, index) => (
               <motion.div
                 key={index}
                 className="p-4"
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="text-3xl font-bold text-primary-yellow">{stat.value}</div>
+                <div className="text-3xl font-bold text-primary-yellow">
+                  {stat.value}
+                </div>
                 <div className="text-text-muted text-sm mt-2">{stat.label}</div>
               </motion.div>
             ))}

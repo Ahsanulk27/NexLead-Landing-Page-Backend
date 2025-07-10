@@ -70,17 +70,19 @@ const Hero: React.FC = () => {
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-text-light">
                 Scale on <span className="text-primary-yellow">Autopilot</span>{" "}
-                with a Fully Managed Growth Infrastructure
+                with Business Process Outsourcing (BPO) & AI-Powered Solutions
               </h1>
 
               <p className="text-lg md:text-xl text-text-muted mb-8">
-                From backend operations to outbound sales, we design, build, and
-                operate the engine that drives your business forward — without
-                you lifting a finger.
+                Unlock scalable business growth with NexLead Solutions. Your
+                trusted partner for outsourcing services, sales outsourcing, and
+                customer experience outsourcing. Our fully managed BPO solutions
+                and AI contact center drive revenue and customer satisfaction,
+                so you can focus on what matters most.
               </p>
               <p className="text-md md:text-lg text-primary-yellow font-medium mb-8">
-                Powered by a human + AI hybrid model — using machine learning to
-                accelerate your business growth.
+                Powered by a human + AI hybrid model leveraging AI-powered
+                automation for next-level efficiency in BPO.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">

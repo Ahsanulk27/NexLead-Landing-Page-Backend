@@ -16,30 +16,30 @@ import {
 const features = [
   {
     icon: <Users size={40} className="text-primary-yellow" />,
-    title: "Your Own Sales Unit",
+    title: "Sales Outsourcing & Lead Generation",
     description:
-      "Trained SDRs and cold callers dialing under your brand, representing you to prospects daily.",
+      "Expert SDRs and outbound sales teams representing your brand, driving new business through proven BPO sales outsourcing strategies.",
     bg: "bg-gradient-to-br from-primary-bg to-gray-900",
   },
   {
     icon: <PhoneCall size={40} className="text-primary-yellow" />,
-    title: "Follow-Up + Closing Execution",
+    title: "Customer Experience Outsourcing",
     description:
-      "Automated pipelines with real human follow-up — so no leads fall through the cracks.",
+      "Seamless customer service BPO and follow-up, blending human touch with AI-powered automation to maximize satisfaction and retention.",
     bg: "bg-gradient-to-br from-primary-bg to-gray-900",
   },
   {
     icon: <Clock size={40} className="text-primary-yellow" />,
-    title: "Client Experience Ops",
+    title: "AI Contact Center & Support",
     description:
-      "Dedicated virtual assistants and support reps who delight your customers and handle the backend.",
+      "AI in BPO: Virtual assistants and support reps powered by advanced automation, delivering 24/7 customer support and backend operations.",
     bg: "bg-gradient-to-br from-primary-bg to-gray-900",
   },
   {
     icon: <LayoutDashboard size={40} className="text-primary-yellow" />,
-    title: "Dashboards + CRM Management",
+    title: "Scalable Business Solutions & Automation",
     description:
-      "Fully managed, always clean and current. You never need to log in — we run it for you.",
+      "Fully managed dashboards, CRM, and AI-powered automation for streamlined operations and scalable growth.",
     bg: "bg-gradient-to-br from-primary-bg to-gray-900",
   },
 ];
@@ -196,11 +196,6 @@ const PackageCard: React.FC<{
 };
 
 const Services: React.FC = () => {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   return (
     <section
       id="services"
@@ -236,56 +231,17 @@ const Services: React.FC = () => {
       </div>
 
       <div className="container-custom relative">
-        {/* Title */}
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <motion.h2
-            className="section-title"
-            whileInView={{
-              textShadow: "0 0 10px rgba(234, 179, 8, 0.3)",
-            }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-          >
-            <TypeAnimation
-              sequence={[
-                "What You Get",
-                1000,
-                "Your Growth Stack",
-                1000,
-                "NexLead Autopilot",
-                1000,
-              ]}
-              wrapper="span"
-              speed={25}
-              repeat={Infinity}
-            />
-          </motion.h2>
-          <motion.p
-            className="section-subtitle max-w-2xl mx-auto"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            We don’t offer services — we install{" "}
-            <span className="text-primary-yellow font-semibold">
-              growth engines
-            </span>
-            , powered by an{" "}
-            <span className="text-primary-yellow font-semibold">
-              AI + human hybrid model
-            </span>
-            . Our system combines intelligent automation with real operators to
-            help you scale — fast and hands-free.
-          </motion.p>
-        </motion.div>
+        <div className="text-center mb-16">
+          <h2 className="section-title text-text-light mb-4">
+            Our BPO Solutions & Outsourcing Services
+          </h2>
+          <p className="section-subtitle text-text-muted max-w-2xl mx-auto">
+            Discover scalable business solutions, sales outsourcing, customer
+            service BPO, and AI-powered automation designed to accelerate your
+            revenue growth. NexLead Solutions delivers customer experience
+            outsourcing and AI in BPO for next-level efficiency and results.
+          </p>
+        </div>
 
         {/* Features */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
