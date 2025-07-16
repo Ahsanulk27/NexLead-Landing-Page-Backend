@@ -69,33 +69,31 @@ const Hero: React.FC = () => {
               className={`animate-on-scroll ${inView ? "is-visible" : ""}`}
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-text-light">
-                Scale on <span className="text-primary-yellow">Autopilot</span>{" "}
-                with BPO & AI-Powered Solutions
+                Scale on Autopilot with Elite AI + Human Intelligence
               </h1>
 
-              <p className="text-lg md:text-xl text-text-muted mb-8">
-                Unlock growth with NexLead Solutions—your partner for business
-                process outsourcing (BPO), sales outsourcing, and customer
-                experience outsourcing. Our AI contact center and BPO solutions
-                drive revenue and satisfaction.
+              <p className="text-lg md:text-xl text-text-muted mb-6">
+                NexLead is your growth autopilot—AI + human intelligence
+                engineered to scale your business faster.
               </p>
               <p className="text-md md:text-lg text-primary-yellow font-medium mb-8">
-                Powered by a human + AI hybrid model for next-level efficiency.
+                Automate strategy, execution, and results—so you can innovate,
+                dominate, and lead your market.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="#contact" // you can update this to a Calendly or actual form section
+                  href="#contact"
                   className="btn-primary flex items-center justify-center"
                 >
-                  Book a Private Strategy Call{" "}
+                  Activate Your Growth Autopilot
                   <ArrowRight size={18} className="ml-2" />
                 </a>
                 <a
                   href="#benefits"
                   className="btn-secondary flex items-center justify-center"
                 >
-                  See What You Get
+                  See the Future of Scaling
                 </a>
               </div>
             </div>

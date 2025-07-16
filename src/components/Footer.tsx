@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
               />
             </div>
             <p className="text-text-muted">
-              Transforming businesses through innovative BPO solutions.
+              Elevating businesses with AI-powered growth and human ingenuity.
             </p>
             <div className="flex space-x-4">
               <a
@@ -170,9 +170,10 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-2">
               <li className="text-text-muted">
-                Shaptak Square, House# 02, Dhanmondi Road# 16 (New) Road# 27(Old),
+                Shaptak Square, House# 02, Dhanmondi Road# 16 (New) Road#
+                27(Old),
                 <br />
-                 Dhaka-1209, Bangladesh
+                Dhaka-1209, Bangladesh
               </li>
               <li>
                 <a

@@ -16,30 +16,30 @@ import {
 const features = [
   {
     icon: <Users size={40} className="text-primary-yellow" />,
-    title: "Sales Outsourcing & Lead Generation",
+    title: "Autopilot Sales Engine",
     description:
-      "Expert SDRs and outbound sales teams representing your brand, driving new business through proven BPO sales outsourcing strategies.",
+      "AI-driven sales acceleration, guided by expert human strategists for exponential growth.",
     bg: "bg-gradient-to-br from-primary-bg to-gray-900",
   },
   {
     icon: <PhoneCall size={40} className="text-primary-yellow" />,
-    title: "Customer Experience Outsourcing",
+    title: "Customer Experience Elevation",
     description:
-      "Seamless customer service BPO and follow-up, blending human touch with AI-powered automation to maximize satisfaction and retention.",
+      "24/7 intelligent support and engagement, blending empathy with automation for unforgettable experiences.",
     bg: "bg-gradient-to-br from-primary-bg to-gray-900",
   },
   {
     icon: <Clock size={40} className="text-primary-yellow" />,
-    title: "AI Contact Center & Support",
+    title: "AI-Enhanced Operations",
     description:
-      "AI in BPO: Virtual assistants and support reps powered by advanced automation, delivering 24/7 customer support and backend operations.",
+      "Streamlined processes and real-time insights, powered by the synergy of human and machine.",
     bg: "bg-gradient-to-br from-primary-bg to-gray-900",
   },
   {
     icon: <LayoutDashboard size={40} className="text-primary-yellow" />,
-    title: "Scalable Business Solutions & Automation",
+    title: "Strategic Growth Dashboard",
     description:
-      "Fully managed dashboards, CRM, and AI-powered automation for streamlined operations and scalable growth.",
+      "Always-on analytics and proactive recommendations, so you’re never guessing—only growing.",
     bg: "bg-gradient-to-br from-primary-bg to-gray-900",
   },
 ];
@@ -233,13 +233,12 @@ const Services: React.FC = () => {
       <div className="container-custom relative">
         <div className="text-center mb-16">
           <h2 className="section-title text-text-light mb-4">
-            Our BPO Solutions & Outsourcing Services
+            Unlock the Next Level of Growth
           </h2>
           <p className="section-subtitle text-text-muted max-w-2xl mx-auto">
-            Discover scalable business solutions, sales outsourcing, customer
-            service BPO, and AI-powered automation designed to accelerate your
-            revenue growth. NexLead Solutions delivers customer experience
-            outsourcing and AI in BPO for next-level efficiency and results.
+            Discover a suite of AI-powered, human-enhanced solutions designed to
+            elevate every aspect of your business—seamlessly, intelligently, and
+            at scale.
           </p>
         </div>
 

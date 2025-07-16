@@ -73,9 +73,9 @@ const About: React.FC = () => {
               sequence={[
                 "About NexLead",
                 1000,
-                "Your Growth Partner",
+                "Your Growth Autopilot",
                 1000,
-                "Scaling Experts",
+                "Scaling, Reinvented",
                 1000,
               ]}
               wrapper="span"
@@ -89,19 +89,8 @@ const About: React.FC = () => {
             className="section-subtitle text-text-muted max-w-2xl mx-auto"
             whileHover={{ scale: 1.02 }}
           >
-            <TypeAnimation
-              sequence={[
-                "The team behind your fully managed growth engine",
-                2000,
-                "Your outsourced growth department",
-                2000,
-                "Premium scaling systems for service businesses",
-                2000,
-              ]}
-              wrapper="span"
-              speed={50}
-              repeat={Infinity}
-            />
+            Your business, reimagined. We don’t just optimize—we transform, so
+            you can lead with confidence in a world of constant change.
           </motion.p>
         </motion.div>
 
@@ -132,18 +121,9 @@ const About: React.FC = () => {
                   </h3>
                 </div>
                 <p className="text-lg text-text-muted leading-relaxed">
-                  We're{" "}
-                  <span className="text-primary-yellow font-medium">
-                    NexLead Solutions
-                  </span>{" "}
-                  — your dedicated{" "}
-                  <span className="text-primary-yellow font-medium">
-                    growth team
-                  </span>{" "}
-                  and Business Process Outsourcing (BPO) partner. We deliver
-                  scalable business solutions, customer experience outsourcing,
-                  and AI-powered automation to help you achieve predictable
-                  revenue growth with minimal owner involvement.
+                  NexLead is the next evolution in business growth—a premium
+                  platform where human brilliance and AI automation unite to
+                  drive your company forward.
                 </p>
               </motion.div>
             </Tilt>
@@ -169,10 +149,10 @@ const About: React.FC = () => {
                 </div>
                 <ul className="space-y-4">
                   {[
-                    "Comprehensive BPO Solutions",
-                    "Customer Service BPO & Experience Outsourcing",
-                    "AI-Powered Automation for Efficiency",
-                    "Sales Outsourcing & Revenue Growth",
+                    "Visionary Growth Systems",
+                    "Human + AI Hybrid Intelligence",
+                    "Elite Strategy, Effortless Execution",
+                    "Unmatched Precision & Scale",
                   ].map((item, index) => (
                     <motion.li
                       key={index}
