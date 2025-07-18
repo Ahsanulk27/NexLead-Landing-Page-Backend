@@ -188,7 +188,7 @@ const Footer: React.FC = () => {
                   href="mailto:info@nexlead.com"
                   className="text-text-muted hover:text-primary-yellow transition-colors"
                 >
-                  terry@nexleadsolutions.co
+                  founder@nexleadsolutions.co
                 </a>
               </li>
             </ul>
